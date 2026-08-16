@@ -62,7 +62,7 @@ La cátedra proveerá un conjunto de casos de prueba, pares de entrada y salida 
 ## Formato de entrega
 
 - El formato del **código fuente** de la entrega se encuentra definido en [este enlace](/formato).
-- Además, se deberá entregar una **bitácora** en formato markdown que contenga lo definido en [este enlace](/documentacion).
+- Además, se deberá entregar una **bitácora** ([ver detalle](/documentacion)), una **declaración de autoría** ([ver detalle](/autoria)) y una **justificación de órdenes** ([ver detalle](/justificacion)), los tres en formato markdown.
 - El uso de herramientas de IA está permitido bajo las pautas definidas en [este enlace](/uso-ia).
 
 > No se deben entregar `pruebas`, `archivos compilados` ni `scripts` para correr las pruebas.

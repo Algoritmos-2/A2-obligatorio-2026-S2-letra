@@ -21,6 +21,7 @@
     * [Código fuente](/formato)
     * [Bitácora](/documentacion)
     * [Autoría](/autoria)
+    * [Justificación de órdenes](/justificacion)
 * Evaluación
     * [Defensa](/defensa)
     * [Uso de IA](/uso-ia)

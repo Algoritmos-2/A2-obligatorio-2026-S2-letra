@@ -10,7 +10,6 @@ La bitácora es un registro cronológico del proceso de trabajo: algo similar al
 - **Quién trabajó** ese día: un integrante en particular o en conjunto.
 - **Qué se hizo y cómo se pensó**: ideas exploradas, decisiones de diseño y su justificación, partes de implementaciones, bugs encontrados y cómo se corrigieron, resultados de pruebas, dudas que quedaron abiertas.
 - **Uso de IA**, si lo hubo ese día: herramienta, consultas relevantes y qué se hizo con la respuesta. Ver [Uso de IA](/uso-ia).
-- **Justificación de órdenes**: para cada ejercicio con restricciones de órdenes (tiempo o espacio) planteadas en la letra, una sección al final de la bitácora con una justificación breve de por qué la solución cumple dichas restricciones, indicando qué estructuras de datos o algoritmos se utilizaron.
 
 No hay un mínimo de largo por entrada: un día de poco avance puede tener dos líneas. Lo que se evalúa es que la bitácora refleje fielmente el proceso real de trabajo.
 
@@ -39,26 +38,11 @@ No hay un mínimo de largo por entrada: un día de poco avance puede tener dos l
   encontré un puntero sin inicializar en `ListImp.cpp` (queda citado acá
   y comentado en el código).
 - El ejercicio 4 compila pero todavía no pasa el caso de prueba 2.
-
-## Justificación de órdenes
-
-### Ejercicio 3
-La letra exige inserción y extracción del mínimo en O(log n). Usamos un
-min-heap sobre arreglo: flotar y hundir recorren a lo sumo la altura del
-árbol, que es O(log n) por ser completo.
 ```
 
 ## Formato de entrega
 
-- Archivo `bitacora.md` en la **raíz del zip** de la entrega, junto al código fuente y a la [declaración de autoría](/autoria) (`autoria.md`).
+- Archivo `bitacora.md` en la **raíz del zip** de la entrega, junto al código fuente, la [declaración de autoría](/autoria) (`autoria.md`) y la [justificación de órdenes](/justificacion) (`justificacion.md`).
 - Debe incluir una carátula (título con los datos de los estudiantes al inicio del archivo).
-- Al final, una tabla que resuma los resultados obtenidos con los casos de prueba provistos por la cátedra:
-
-| Problema | Resultado |
-|----------|-----------|
-| 1        | Completo (pasan todas las pruebas) |
-| 2        | Parcial (pasan algunas pruebas) |
-| 3        | En proceso (implementado, no pasa pruebas) |
-| 4        | No implementado (o no compila) |
 
 !> La falta de bitácora, o una bitácora que no refleje el proceso de trabajo (por ejemplo, escrita íntegramente el día de la entrega), implicará la pérdida de puntos.
