@@ -20,7 +20,7 @@
 * Formato de entrega
     * [Código fuente](/formato)
     * [Bitácora](/documentacion)
-        * [Autoría](/autoria)
+    * [Autoría](/autoria)
 * Evaluación
     * [Defensa](/defensa)
     * [Uso de IA](/uso-ia)
