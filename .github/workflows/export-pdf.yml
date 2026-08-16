@@ -1,0 +1,55 @@
+name: Export PDFs
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  export:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+
+      - run: npm ci
+
+      - name: Export Obligatorio 1
+        run: npm run export:oblig1
+
+      - name: Export Obligatorio 2
+        run: npm run export:oblig2
+
+      - name: Upload Obligatorio 1
+        uses: actions/upload-artifact@v4
+        with:
+          name: obligatorio1-pdf
+          path: obligatorio1.pdf
+
+      - name: Upload Obligatorio 2
+        uses: actions/upload-artifact@v4
+        with:
+          name: obligatorio2-pdf
+          path: obligatorio2.pdf
+
+      - name: Update latest release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: latest
+          name: Obligatorios (última versión)
+          body: |
+            PDFs generados automáticamente desde los ejercicios en `docs/`.
+
+            Última actualización: ${{ github.event.head_commit.timestamp || github.event.repository.updated_at }}
+          files: |
+            obligatorio1.pdf
+            obligatorio2.pdf
+          make_latest: true
+          prerelease: false

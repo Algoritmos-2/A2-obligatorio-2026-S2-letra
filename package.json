@@ -1,0 +1,21 @@
+{
+  "name": "a2-obligatorio-24s1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "docs": "docsify serve docs",
+    "export:oblig1": "node scripts/export-pdf.js scripts/oblig1.config.js",
+    "export:oblig2": "node scripts/export-pdf.js scripts/oblig2.config.js",
+    "export:all": "npm run export:oblig1 && npm run export:oblig2",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "docsify-cli": "^4.4.4",
+    "markdown-it": "^14.1.1",
+    "markdown-it-katex": "^2.0.3",
+    "puppeteer": "^24.40.0"
+  }
+}
