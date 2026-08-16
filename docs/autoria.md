@@ -34,7 +34,7 @@ La declaración de autoría se entrega en un archivo `autoria.md` en la **raíz 
 
 ### Ejemplo en el código fuente
 
-Además de la declaración en la bitácora, los fragmentos tomados de otras fuentes o generados por IAG deben señalarse con un comentario en el lugar donde se usan:
+Además de la declaración en `autoria.md`, los fragmentos tomados de otras fuentes o generados por IAG deben señalarse con un comentario en el lugar donde se usan:
 
 ```cpp
 // Fragmento generado con GitHub Copilot: plantilla de la clase NodoAVL.
