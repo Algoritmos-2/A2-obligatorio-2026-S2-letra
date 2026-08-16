@@ -3,15 +3,17 @@
 El formato de entrega del obligatorio va a constar de un archivo zip que
 en su interior contenga únicamente archivos con extensiones ".cpp" y
 ".h" en caso de C/C++ o ".java" en caso de utilizar Java, además de la
-[bitácora](/documentacion) (`bitacora.md`) en la raíz. También podrán
+[bitácora](/documentacion) (`bitacora.md`) y la [declaración de
+autoría](/autoria) (`autoria.md`) en la raíz. También podrán
 existir directorios para organizar mejor el código y poder reutilizar
 implementaciones en varios ejercicios.
 
-> **Es importante que el archivo zip no contenga archivos de ningún otro tipo, como test/pruebas, archivos binarios, etc. La única excepción es la bitácora (`bitacora.md`).**
+> **Es importante que el archivo zip no contenga archivos de ningún otro tipo, como test/pruebas, archivos binarios, etc. Las únicas excepciones son la bitácora (`bitacora.md`) y la declaración de autoría (`autoria.md`).**
 
-Recomendamos basarse en los templates provistos por la cátedra para minimizar la posibilidad de errores en la entrega.
-- [Template C++](https://github.com/Algoritmos-2/A2-obligatorio-template-cpp)
-- [Template Java](https://github.com/Algoritmos-2/A2-obligatorio-template-java)
+Recomendamos basarse en los templates provistos por la cátedra para minimizar la posibilidad de errores en la entrega. Los templates ya incluyen `bitacora.md` y `autoria.md` con la estructura esperada.
+
+- Obligatorio 1 (ejercicios 1 a 5): [Template C++](https://github.com/Algoritmos-2/A2-obligatorio1-template-cpp) | [Template Java](https://github.com/Algoritmos-2/A2-obligatorio1-template-java)
+- Obligatorio 2 (ejercicios 6 a 10): [Template C++](https://github.com/Algoritmos-2/A2-obligatorio2-template-cpp) | [Template Java](https://github.com/Algoritmos-2/A2-obligatorio2-template-java)
 
 # C/C++
 

@@ -42,8 +42,8 @@ No hay un mínimo de largo por entrada: un día de poco avance puede tener dos l
 
 ## Formato de entrega
 
-- Archivo `bitacora.md` en la **raíz del zip** de la entrega, junto al código fuente.
-- Debe incluir además una carátula (título con los datos de los estudiantes al inicio del archivo) y la [declaración de autoría](/autoria) de cada ejercicio.
+- Archivo `bitacora.md` en la **raíz del zip** de la entrega, junto al código fuente y a la [declaración de autoría](/autoria) (`autoria.md`).
+- Debe incluir una carátula (título con los datos de los estudiantes al inicio del archivo).
 - Al final, una tabla que resuma los resultados obtenidos con los casos de prueba provistos por la cátedra:
 
 | Problema | Resultado |

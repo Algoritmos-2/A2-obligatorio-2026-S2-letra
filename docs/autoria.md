@@ -10,25 +10,25 @@ Los estudiantes deben especificar las fuentes de información y recursos utiliza
 
 ## Cómo declarar la autoría
 
-La declaración de autoría se incluye como una sección de la [bitácora](/documentacion), con un apartado por ejercicio. Si un ejercicio no utilizó fuentes externas, también debe indicarse.
+La declaración de autoría se entrega en un archivo `autoria.md` en la **raíz del zip**, junto al código fuente y la [bitácora](/documentacion), con un apartado por ejercicio. Si un ejercicio no utilizó fuentes externas, también debe indicarse. Los templates provistos por la cátedra ya incluyen este archivo con la estructura esperada.
 
 ### Ejemplo de declaración
 
 ```markdown
-## Declaración de autoría
+# Declaración de autoría — Obligatorio 1
 
-### Ejercicio 3
+## Ejercicio 3
 - TAD Heap basado en la implementación vista en clase (semana 8),
   adaptado para soportar elementos con prioridad repetida.
 - Corrección de la función `hundir` con ayuda de ChatGPT
   (debugging sobre código propio, ver entrada del 2026-09-04).
 
-### Ejercicio 4
+## Ejercicio 4
 - Función de lectura de grafos basada en el ejemplo de
   https://cp-algorithms.com/graph/breadth-first-search.html
 - El resto de la implementación es íntegramente propia.
 
-### Ejercicio 5
+## Ejercicio 5
 - Implementación íntegramente propia, sin fuentes externas.
 ```
 
