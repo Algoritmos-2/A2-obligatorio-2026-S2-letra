@@ -81,6 +81,18 @@
               edgeStyle['text-background-padding'] = '3px';
               edgeStyle['color'] = '#555';
             }
+            if (data.directed) {
+              edgeStyle['target-arrow-shape'] = 'triangle';
+              edgeStyle['target-arrow-color'] = '#aaa';
+              edgeStyle['arrow-scale'] = 1.1;
+            }
+
+            var layoutName = data.layout || (data.directed ? 'breadthfirst' : 'cose');
+            var layoutOpts = { name: layoutName, animate: false, padding: 10 };
+            if (layoutName === 'breadthfirst') {
+              layoutOpts.directed = true;
+              layoutOpts.spacingFactor = 1.1;
+            }
 
             cytoscape({
               container: div,
@@ -89,7 +101,7 @@
                 { selector: 'node', style: { 'background-color': '#4a90d9', 'label': 'data(id)', 'color': '#fff', 'text-valign': 'center', 'text-halign': 'center', 'font-size': '14px', 'text-outline-width': 2, 'text-outline-color': '#4a90d9', 'width': 40, 'height': 40 } },
                 { selector: 'edge', style: edgeStyle }
               ],
-              layout: { name: data.layout || 'cose', animate: false },
+              layout: layoutOpts,
               userZoomingEnabled: true,
               userPanningEnabled: true,
               boxSelectionEnabled: false
