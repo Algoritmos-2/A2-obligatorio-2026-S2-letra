@@ -4,10 +4,10 @@ module.exports = {
   carrera: "Ingeniería en Sistemas",
   evaluacion: "Obligatorio 2",
   grupo: "",
-  fecha_entrega: "XX/XX/XXXX",
-  fecha_defensa: "XX/XX/XXXX",
-  puntaje_maximo: "XX",
-  puntaje_minimo: "XX",
+  fecha_entrega: "26/11/2026",
+  fecha_defensa: "10/12/2026",
+  puntaje_maximo: "15",
+  puntaje_minimo: "0",
 
   // Exercises included in this obligatorio
   ejercicios: [6, 7, 8, 9, 10],
