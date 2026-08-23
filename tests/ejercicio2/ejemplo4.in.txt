@@ -1,0 +1,8 @@
+4
+abc
+bca
+cab
+acb
+2
+bac
+abd
