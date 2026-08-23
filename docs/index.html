@@ -41,5 +41,68 @@
   <script src="//unpkg.com/docsify-mermaid@2.0.1/dist/docsify-mermaid.js"></script>
   <!-- Plugin end -->
 
+  <!-- Plugin start (cytoscape): -->
+  <script src="//cdn.jsdelivr.net/npm/cytoscape@3/dist/cytoscape.min.js"></script>
+  <style>
+    .cy-container { width: 100%; height: 350px; border: 1px solid #e0e0e0; border-radius: 8px; margin: 16px 0; }
+  </style>
+  <script>
+    (function () {
+      var cyCounter = 0;
+      function renderCytoscape(hook) {
+        hook.doneEach(function () {
+          document.querySelectorAll('code.lang-cytoscape').forEach(function (block) {
+            var pre = block.parentElement;
+            var data = JSON.parse(block.textContent);
+            var id = 'cy-' + (cyCounter++);
+            var div = document.createElement('div');
+            div.id = id;
+            div.className = 'cy-container';
+            if (data.height) div.style.height = data.height + 'px';
+            pre.replaceWith(div);
+
+            var elements = [];
+            (data.nodes || []).forEach(function (n) {
+              elements.push({ data: { id: String(n) } });
+            });
+            var hasLabels = false;
+            (data.edges || []).forEach(function (e) {
+              var ed = { source: String(e[0]), target: String(e[1]) };
+              if (e[2] !== undefined) { ed.label = String(e[2]); hasLabels = true; }
+              elements.push({ data: ed });
+            });
+
+            var edgeStyle = { 'width': 2, 'line-color': '#aaa', 'curve-style': 'bezier' };
+            if (hasLabels) {
+              edgeStyle['label'] = 'data(label)';
+              edgeStyle['font-size'] = '12px';
+              edgeStyle['text-background-color'] = '#fff';
+              edgeStyle['text-background-opacity'] = 1;
+              edgeStyle['text-background-padding'] = '3px';
+              edgeStyle['color'] = '#555';
+            }
+
+            cytoscape({
+              container: div,
+              elements: elements,
+              style: [
+                { selector: 'node', style: { 'background-color': '#4a90d9', 'label': 'data(id)', 'color': '#fff', 'text-valign': 'center', 'text-halign': 'center', 'font-size': '14px', 'text-outline-width': 2, 'text-outline-color': '#4a90d9', 'width': 40, 'height': 40 } },
+                { selector: 'edge', style: edgeStyle }
+              ],
+              layout: { name: data.layout || 'cose', animate: false },
+              userZoomingEnabled: true,
+              userPanningEnabled: true,
+              boxSelectionEnabled: false
+            });
+          });
+        });
+      }
+      if (window.$docsify) {
+        window.$docsify.plugins = (window.$docsify.plugins || []).concat(renderCytoscape);
+      }
+    })();
+  </script>
+  <!-- Plugin end -->
+
 </body>
 </html>
