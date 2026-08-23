@@ -1,0 +1,10 @@
+9
+ALTA P guernica
+ALTA P girasoles
+ALTA P gioconda
+ALTA P nenufares
+ALTA P grito
+RANGO P gi gz
+RANGO P a f
+BUSCAR P gioconda
+RANGO P grito nenufares

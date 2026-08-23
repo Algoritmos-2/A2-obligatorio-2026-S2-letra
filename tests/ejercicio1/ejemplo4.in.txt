@@ -1,0 +1,6 @@
+5
+BUSCAR M 1
+RANGO P a z
+ALTA P unica
+RANGO P unica unica
+BUSCAR P otra
