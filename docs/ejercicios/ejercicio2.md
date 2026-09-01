@@ -15,7 +15,7 @@ Dos reglas que conviene tener presentes:
 1. Dos palabras registradas iguales cuentan como **dos palabras distintas**.
 2. Consultar una palabra **no la registra**. Una palabra consultada se cuenta a sí misma solo si además fue registrada.
 
-Al terminar las consultas hay que informar cuántos cajones distintos hicieron falta para las palabras registradas, y cuántas palabras se componen con el cajón más grande.
+Al terminar las consultas hay que informar cuántos cajones distintos hicieron falta para las palabras registradas, y cuántas palabras se componen con el **cajón más grande**. El cajón más grande es el que compone **más palabras registradas**. La cantidad de tipos que necesita un cajón no interviene en ese criterio. Si varios cajones empatan, la cantidad a informar es la misma para cualquiera de ellos.
 
 ## Entrada
 
@@ -29,16 +29,16 @@ Toda palabra, registrada o consultada, es una cadena de 1 a 20 letras latinas mi
 ## Salida
 
 - Imprima $Q$ líneas, una por consulta y en el orden en que llegan. La línea $i$ contiene la cantidad de palabras registradas que se componen con el mismo cajón que la consulta $i$. Si ninguna palabra registrada usa ese cajón, imprima `0`.
-- Imprima una última línea con dos enteros separados por un espacio: la cantidad de cajones distintos que hicieron falta para las $N$ palabras registradas, y la cantidad de palabras que se componen con el cajón más grande.
+- Imprima una última línea con dos enteros separados por un espacio: la cantidad de cajones distintos que hicieron falta para las $N$ palabras registradas, y la cantidad de palabras que se componen con el cajón más grande, es decir, la mayor cantidad de palabras registradas que comparten un mismo cajón.
 
 La salida tiene siempre $Q + 1$ líneas.
 
 ## Restricciones
 
 - Utilizar una **tabla de hash abierta**, con resolución de colisiones por encadenamiento.
-- Registrar una palabra y responder una consulta, las dos en orden temporal $O(L)$ promedio, siendo $L$ el largo de la palabra involucrada. El orden es exactamente ese: **no admite ningún término que dependa de la cantidad de palabras que comparten cajón**, que puede llegar a ser $N$.
-- El factor de carga de la tabla debe quedar acotado. El largo esperado de cada cadena no debe depender de $N$.
-- Obtener la última línea de la salida en $O(M + D)$ en el peor caso, siendo $M$ la cantidad de cubetas de la tabla y $D$ la cantidad de cajones distintos.
+- Registrar una palabra y responder una consulta, las dos en orden temporal $O(L)$ promedio, siendo $L$ el largo de la palabra involucrada. La cota cubre el **proceso completo** de cada operación: obtener a partir de la palabra la clave que identifica su cajón, calcular la función de hash sobre esa clave, y hacer la operación sobre la tabla, incluidas las comparaciones dentro del bucket. El orden es exactamente ese: **no admite ningún término que dependa de la cantidad de palabras que comparten cajón**, que puede llegar a ser $N$.
+- Se espera una **decisión sobre el factor de carga**: dimensionar la tabla de modo que el factor de carga se mantenga sano durante todo el ejercicio, sin necesidad de hacer rehash y sin ocupar memoria de más.
+- Obtener la última línea de la salida en $O(1)$ en el peor caso. Los dos valores que pide, cajones distintos y palabras del cajón más grande, se mantienen actualizados durante el registro, con $O(1)$ extra por palabra. No admite recorrer la tabla ni las $N$ palabras al terminar, ni ordenar los cajones.
 - Resolver el problema completo en orden temporal lineal, en promedio, respecto del tamaño total de la entrada.
 
 El alfabeto tiene 26 letras y se considera constante a efectos del orden.
@@ -86,7 +86,7 @@ Las seis palabras registradas se reparten en tres cajones:
 
 `perro` necesita los tipos `e`, `o`, `p`, `r` y `r`. Ninguna palabra registrada usa ese cajón, así que la respuesta es `0`.
 
-La última línea informa que hicieron falta 3 cajones, y que el cajón más grande compone 3 palabras.
+La última línea informa que hicieron falta 3 cajones, y que el cajón más grande compone 3 palabras. Notar que el cajón 3 necesita tantos tipos como el cajón 1, pero compone una sola palabra: el tamaño de un cajón es la cantidad de palabras que compone, no la cantidad de tipos que necesita.
 
 ---
 
