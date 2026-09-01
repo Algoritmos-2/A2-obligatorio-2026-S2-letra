@@ -63,13 +63,13 @@ Si hay un único archivo, no se realiza ninguna consolidación y el costo total 
 
 El costo total es $3 + 6 + 10 = 19$.
 
-Notar el paso 2. De los dos archivos de tamaño 3, uno es el archivo original y el otro es el que salió del paso 1. El archivo nuevo volvió a entrar en juego y se pagó de nuevo.
+Notar el paso 2. De los dos archivos de tamaño 3, uno es el archivo original y el otro es el que salió del paso 1. Los archivos originales de tamaño 1 y 2 ya no están disponibles, pero su contenido sigue adentro del archivo nuevo. Consolidar el archivo nuevo vuelve a leer y a escribir ese contenido, y por eso se paga de nuevo.
 
-Los tamaños de los archivos suman $1 + 2 + 3 + 4 = 10$, pero el costo total es 19. Cada archivo se paga una vez por cada consolidación en la que participa:
+Los tamaños de los archivos suman $1 + 2 + 3 + 4 = 10$, pero el costo total es 19. Cada archivo original se paga una vez por cada consolidación que copia su contenido, ya sea directamente o adentro de un archivo nuevo que lo contiene:
 
 $$1 \times 3 + 2 \times 3 + 3 \times 2 + 4 \times 1 = 19$$
 
-El archivo de tamaño 1 entra en las tres consolidaciones. El de tamaño 4 entra solo en la última.
+El contenido del archivo de tamaño 1 se copia en las tres consolidaciones: en el paso 1 como archivo original, y en los pasos 2 y 3 adentro de los archivos nuevos de tamaño 3 y 6. El contenido del archivo de tamaño 4 se copia solo en la última.
 
 ---
 
@@ -130,7 +130,7 @@ Eso da 46, no 44. El error está en el paso 2: consolida el archivo nuevo cuando
 
 Hay un solo archivo, así que no hay nada que consolidar. No se realiza ninguna consolidación y el costo total es `0`.
 
-El costo total **no** es 42. El tamaño de un archivo se paga cuando el archivo participa de una consolidación, y acá no participa de ninguna.
+El costo total **no** es 42. El tamaño de un archivo se paga cuando una consolidación copia su contenido, y acá no hay ninguna consolidación.
 
 ---
 
