@@ -1,0 +1,17 @@
+4
+2
+SEND
+MORE
+MONEY
+2
+A
+B
+AA
+2
+AB
+BA
+CC
+2
+A
+B
+A
