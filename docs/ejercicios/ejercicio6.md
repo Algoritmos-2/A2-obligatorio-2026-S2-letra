@@ -2,18 +2,18 @@
 
 ## Descripción
 
-Un viejo amigo está de visita en tu ciudad y quieres asegurarte de que encuentre tu casa sin problemas. Para ello, has decidido renovar el cartel de dirección de tu hogar. 
+Un viejo amigo está de visita en tu ciudad y querés asegurarte de que encuentre tu casa sin problemas. Para ello, decidiste renovar el cartel de dirección de tu casa. 
 
-Tienes a tu disposición una colección de $N$ placas decorativas, cada una con un número grabado. Quieres construir un cartel uniendo estas placas en una fila. 
+Tenés a tu disposición una colección de $N$ placas decorativas, cada una con un número grabado. Querés construir un cartel uniendo estas placas en una fila. 
 
-Sin embargo, conoces la reputación de la compañía encargada de instalar el cartel: ¡suelen distraerse y podrían llegar a colocar el cartel al revés! Para evitar cualquier confusión, necesitas que la secuencia de números en tu cartel se lea exactamente igual de izquierda a derecha que de derecha a izquierda.
+Sin embargo, conocés la reputación de la compañía encargada de instalar el cartel: ¡suelen distraerse y podrían llegar a colocar el cartel al revés! Para evitar cualquier confusión, necesitás que la secuencia de números en tu cartel se lea exactamente igual de izquierda a derecha que de derecha a izquierda.
 
-Además, quieres que tu casa destaque. Por lo tanto, tu objetivo es construir el cartel "mayor" posible siguiendo estas estrictas reglas de prioridad:
+Además, querés que tu casa destaque. Por lo tanto, tu objetivo es construir el cartel "mayor" posible siguiendo estas estrictas reglas de prioridad:
 
 1. **El cartel debe ser lo más largo posible** (es decir, utilizar la mayor cantidad de placas posible de tu colección).
-2. En caso de que existan múltiples formas de armar un cartel de la misma longitud máxima, la secuencia de números debe ser **lexicográficamente la mayor posible**. Esto significa que al comparar dos carteles válidos placa por placa desde el inicio, tu cartel debe tener el número más grande en la primera posición donde difieran.
+2. En caso de que existan múltiples formas de armar un cartel de la misma longitud máxima, la secuencia de números debe ser **lexicográficamente la mayor posible**. Esto significa que al comparar dos carteles válidos placa por placa desde el inicio, tu cartel debe tener el número más grande en la primera posición donde sean distintas.
 
-Ten en cuenta que no es obligatorio utilizar todas las placas de tu colección; te pueden sobrar placas si no es posible incluirlas cumpliendo la condición de que el cartel se lea igual de ambos lados.
+Tené en cuenta que no es obligatorio utilizar todas las placas de tu colección; te pueden sobrar placas si no es posible incluirlas cumpliendo la condición de que el cartel se lea igual de ambos lados.
 
 Determine la **secuencia de números** que conforma el cartel óptimo.
 
