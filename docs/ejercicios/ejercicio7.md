@@ -23,11 +23,11 @@ Cada participante, de $1$ a $N$, aparece exactamente una vez en cada ranking. El
 
 ## Salida
 
-Imprima un único entero: la cantidad total de remontadas épicas.
+Imprima un único entero: la cantidad total de remontadas épicas. Si no hay ninguna, imprima `0`.
 
 ## Restricciones
 
-- Resolver con **dividir y conquistar**.
+- Utilizar **dividir y conquistar** para resolver el problema.
 - Resolver en orden temporal $O(N \log N)$ en el peor caso, siendo $N$ la cantidad de participantes.
 - Orden espacial $O(N)$.
 - La cantidad de remontadas épicas puede superar el rango de un entero de 32 bits.
@@ -74,7 +74,7 @@ Hay siete pares en los que un participante terminó por encima de otro que habí
 
 Tres de ellos son remontadas épicas.
 
-Notar que el participante 4 arrancó primero y el 3 arrancó último. Las condiciones se verifican con los puestos, no con los números de los participantes.
+Notar que el participante 4 arrancó primero y el 3 arrancó último: las condiciones comparan puestos, no números de participante.
 
 ---
 
@@ -98,12 +98,12 @@ Acá el ranking inicial es `1 2 3 4`, así que cada participante arrancó en el 
 
 | Termina arriba | Termina abajo | Puestos iniciales | ¿Remontada épica? |
 | -------------- | ------------- | ----------------- | ----------------- |
-| 4 | 1 | 4 y 1 | sí, $4 > 2 \times 1$ |
 | 4 | 2 | 4 y 2 | no, $4 = 2 \times 2$ |
+| 4 | 1 | 4 y 1 | sí, $4 > 2 \times 1$ |
 | 4 | 3 | 4 y 3 | no, $4 < 2 \times 3$ |
 | 2 | 1 | 2 y 1 | no, $2 = 2 \times 1$ |
 
-El doble justo no alcanza: el 4 sobre el 2 y el 2 sobre el 1 no cuentan, porque el puesto tiene que ser mayor que el doble.
+El 4 sobre el 2 y el 2 sobre el 1 quedan en el doble justo, y no cuentan.
 
 ---
 
@@ -130,7 +130,7 @@ El doble justo no alcanza: el 4 sobre el 2 y el 2 sobre el 1 no cuentan, porque 
 | 6 | 4 | 6 y 4 | no, $6 < 2 \times 4$ |
 | 6 | 5 | 6 y 5 | no, $6 < 2 \times 5$ |
 
-El 3 y el 6 suben dos puestos cada uno, pero solo el 3 hace una remontada épica. Cerca del primer puesto alcanza con poca distancia. Para remontar sobre quien arrancó cuarto, en cambio, hay que haber arrancado noveno o más atrás.
+El 3 y el 6 suben dos puestos cada uno, pero solo el 3 hace una remontada épica. Para remontar sobre quien arrancó primero alcanza con haber arrancado tercero. Para remontar sobre quien arrancó cuarto, en cambio, hay que haber arrancado noveno o más atrás.
 
 ---
 
@@ -161,4 +161,4 @@ El ranking final es el inicial dado vuelta, así que los 15 pares se cruzan.
 | 2 | 2 | nadie |
 | 1 | 1 | nadie |
 
-El total es $2 + 2 + 1 + 1 = 6$. El 6 no remonta sobre el 3, ni el 4 sobre el 2, ni el 2 sobre el 1: en los tres casos es el doble justo.
+El total es $2 + 2 + 1 + 1 = 6$. El 6 sobre el 3, el 4 sobre el 2 y el 2 sobre el 1 quedan en el doble justo.
