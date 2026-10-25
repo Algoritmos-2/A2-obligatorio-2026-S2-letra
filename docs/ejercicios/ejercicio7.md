@@ -39,20 +39,50 @@ Imprima un único entero: la cantidad total de remontadas épicas. Si no hay nin
 ### Input 1
 
 ```
-5
-4 2 5 1 3
-3 5 4 1 2
+3
+1 2 3
+3 2 1
 ```
 
 ### Output 1
 
 ```
-3
+1
 ```
 
 ### Explicación 1
 
-Las condiciones comparan **puestos**, no números de participante. Por eso el primer paso es ver en qué puesto arrancó y en qué puesto terminó cada uno:
+El ranking inicial es `1 2 3`, así que cada participante arrancó en el puesto de su número. El ranking final es el inicial dado vuelta.
+
+Para que $B$ remonte sobre $A$, $B$ tiene que terminar por encima de $A$ (condición 1) y haber arrancado detrás de $A$, porque si arrancó delante su puesto inicial no puede ser mayor que el doble del de $A$ (condición 2). Alcanza entonces con revisar los pares en los que $B$ arrancó detrás de $A$ y terminó delante. Acá son tres:
+
+| $B$ (terminó arriba) | $A$ (terminó abajo) | Puesto inicial de $B$ | Puesto inicial de $A$ | ¿Remontada épica? |
+| -------------------- | ------------------- | --------------------- | --------------------- | ----------------- |
+| 3 | 2 | 3 | 2 | no, $3 < 2 \times 2$ |
+| 3 | 1 | 3 | 1 | sí, $3 > 2 \times 1$ |
+| 2 | 1 | 2 | 1 | no, $2 = 2 \times 1$ |
+
+Solo el 3 sobre el 1 es una remontada épica. El 2 sobre el 1 queda en el doble justo y no cuenta: el puesto inicial de $B$ tiene que ser **mayor** que el doble.
+
+---
+
+### Input 2
+
+```
+5
+4 2 5 1 3
+3 5 4 1 2
+```
+
+### Output 2
+
+```
+3
+```
+
+### Explicación 2
+
+Acá los números de los participantes no coinciden con sus puestos, y las condiciones comparan **puestos**. Por eso el primer paso es ver en qué puesto arrancó y en qué puesto terminó cada uno:
 
 | Participante | Puesto inicial | Puesto final |
 | ------------ | -------------- | ------------ |
@@ -64,7 +94,7 @@ Las condiciones comparan **puestos**, no números de participante. Por eso el pr
 
 Por ejemplo, el participante 4 arrancó primero y terminó tercero, y el participante 3 arrancó último y terminó primero.
 
-Para que $B$ remonte sobre $A$, $B$ tiene que terminar por encima de $A$ (condición 1) y haber arrancado detrás de $A$, porque si arrancó delante su puesto inicial no puede ser mayor que el doble del de $A$ (condición 2). Alcanza entonces con revisar los pares en los que $B$ arrancó detrás de $A$ y terminó delante. En este torneo hay siete:
+Los pares en los que $B$ arrancó detrás de $A$ y terminó delante son siete:
 
 | $B$ (terminó arriba) | $A$ (terminó abajo) | Puesto inicial de $B$ | Puesto inicial de $A$ | ¿Remontada épica? |
 | -------------------- | ------------------- | --------------------- | --------------------- | ----------------- |
@@ -80,7 +110,7 @@ Tres de esos pares son remontadas épicas.
 
 ---
 
-### Input 2
+### Input 3
 
 ```
 4
@@ -88,13 +118,13 @@ Tres de esos pares son remontadas épicas.
 4 2 1 3
 ```
 
-### Output 2
+### Output 3
 
 ```
 1
 ```
 
-### Explicación 2
+### Explicación 3
 
 Acá el ranking inicial es `1 2 3 4`, así que cada participante arrancó en el puesto de su número. Los pares en los que $B$ arrancó detrás de $A$ y terminó delante son:
 
@@ -105,11 +135,11 @@ Acá el ranking inicial es `1 2 3 4`, así que cada participante arrancó en el 
 | 4 | 3 | 4 | 3 | no, $4 < 2 \times 3$ |
 | 2 | 1 | 2 | 1 | no, $2 = 2 \times 1$ |
 
-El 4 sobre el 2 y el 2 sobre el 1 quedan en el doble justo, y no cuentan: el puesto inicial de $B$ tiene que ser **mayor** que el doble.
+El 4 sobre el 2 y el 2 sobre el 1 quedan en el doble justo, y no cuentan.
 
 ---
 
-### Input 3
+### Input 4
 
 ```
 6
@@ -117,13 +147,13 @@ El 4 sobre el 2 y el 2 sobre el 1 quedan en el doble justo, y no cuentan: el pue
 3 1 2 6 4 5
 ```
 
-### Output 3
+### Output 4
 
 ```
 1
 ```
 
-### Explicación 3
+### Explicación 4
 
 Los pares en los que $B$ arrancó detrás de $A$ y terminó delante son:
 
@@ -138,7 +168,7 @@ El 3 y el 6 suben dos puestos cada uno, pero solo el 3 hace una remontada épica
 
 ---
 
-### Input 4
+### Input 5
 
 ```
 6
@@ -146,13 +176,13 @@ El 3 y el 6 suben dos puestos cada uno, pero solo el 3 hace una remontada épica
 6 5 4 3 2 1
 ```
 
-### Output 4
+### Output 5
 
 ```
 6
 ```
 
-### Explicación 4
+### Explicación 5
 
 El ranking final es el inicial dado vuelta: cada participante termina por encima de todos los que arrancaron delante. Cada uno remonta sobre los que arrancaron en un puesto menor que la mitad del suyo:
 
