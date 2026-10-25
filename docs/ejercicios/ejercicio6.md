@@ -2,25 +2,25 @@
 
 ## Descripción
 
-Un viejo amigo está de visita en tu ciudad y querés asegurarte de que encuentre tu casa sin problemas. Para ello, decidiste renovar el cartel de dirección de tu casa. 
+Un vecino espera la visita de un viejo amigo y quiere que encuentre su casa sin problemas. Para eso decide renovar el cartel con la dirección.
 
-Tenés a tu disposición una colección de $N$ placas decorativas, cada una con un número grabado. Querés construir un cartel uniendo estas placas en una fila. 
+Tiene una colección de $N$ placas decorativas, cada una con un número grabado, y arma el cartel poniendo placas en fila.
 
-Sin embargo, conocés la reputación de la compañía encargada de instalar el cartel: ¡suelen distraerse y podrían llegar a colocar el cartel al revés! Para evitar cualquier confusión, necesitás que la secuencia de números en tu cartel se lea exactamente igual de izquierda a derecha que de derecha a izquierda.
+La empresa que instala los carteles tiene fama de distraída y a veces los coloca al revés. Para que eso no importe, la secuencia de números del cartel tiene que leerse igual de izquierda a derecha que de derecha a izquierda.
 
-Además, querés que tu casa destaque. Por lo tanto, tu objetivo es construir el cartel "mayor" posible siguiendo estas estrictas reglas de prioridad:
+Entre los carteles que cumplen esa condición, el vecino quiere el mayor según estas reglas, en orden de prioridad:
 
-1. **El cartel debe ser lo más largo posible** (es decir, utilizar la mayor cantidad de placas posible de tu colección).
-2. En caso de que existan múltiples formas de armar un cartel de la misma longitud máxima, la secuencia de números debe ser **lexicográficamente la mayor posible**. Esto significa que al comparar dos carteles válidos placa por placa desde el inicio, tu cartel debe tener el número más grande en la primera posición donde sean distintas.
+1. El cartel debe usar la **mayor cantidad de placas** posible.
+2. Si hay varios carteles con esa cantidad de placas, el cartel debe ser **lexicográficamente el mayor**: al comparar dos carteles placa por placa desde el inicio, gana el que tiene el número más grande en la primera posición donde difieren.
 
-Tené en cuenta que no es obligatorio utilizar todas las placas de tu colección; te pueden sobrar placas si no es posible incluirlas cumpliendo la condición de que el cartel se lea igual de ambos lados.
+No hace falta usar todas las placas.
 
 Determine la **secuencia de números** que conforma el cartel óptimo.
 
 ## Entrada
 
-- La primera línea contiene un entero $N$ ($1 \leq N \leq 2 \times 10^5$), la cantidad de placas disponibles en tu colección.
-- La segunda línea contiene $N$ enteros separados por espacios $A_1, A_2, \dots, A_N$ ($0 \leq A_i \leq 1000$), representando los números grabados en cada placa de tu colección.
+- La primera línea contiene un entero $N$ ($1 \leq N \leq 2 \times 10^5$), la cantidad de placas de la colección.
+- La segunda línea contiene $N$ enteros separados por espacios $A_1, A_2, \dots, A_N$ ($0 \leq A_i \leq 1000$), los números grabados en cada placa.
 
 ## Salida
 
@@ -28,45 +28,88 @@ Imprima la secuencia de números que conforma el cartel óptimo, con un único e
 
 ## Restricciones
 
-- Utilizar una estrategia **Greedy** para resolver el problema.
+- Utilizar una **estrategia greedy** para resolver el problema.
 - Resolver en orden temporal $O(N)$ en el peor caso, siendo $N$ la cantidad de placas.
 - Orden espacial $O(N)$.
 
-## Ejemplos
+## Ejemplo
 
 ### Input 1
 
-```text
+```
 8
 15 8 15 10 10 15 8 20
 ```
 
 ### Output 1
 
-```text
+```
 15 10 8 20 8 10 15
 ```
 
 ### Explicación 1
 
-Las placas disponibles en la colección son: una con `20`, tres con `15`, dos con `10` y dos con `8`. 
-Para maximizar la longitud del cartel (Regla 1), debemos usar la mayor cantidad de pares posibles. Formamos un par de `15`, un par de `10` y un par de `8`.
-Para que sea lexicográficamente mayor (Regla 2), ubicamos los números más grandes en los extremos. Así, la primera mitad del cartel se arma con `15 10 8`.
-Nos sobran las placas `15` y `20`. Como solo podemos colocar una placa suelta en el centro, elegimos el `20` porque es mayor que el `15`, maximizando así la secuencia.
+La colección tiene una placa con `20`, tres con `15`, dos con `10` y dos con `8`.
+
+Por la regla 1 se usan todos los pares: uno de `15`, uno de `10` y uno de `8`. Por la regla 2, los números más grandes van hacia los extremos, así que la primera mitad del cartel es `15 10 8`.
+
+Sobran un `15` y el `20`, y en el centro entra una sola placa suelta. Va el `20`, que es mayor que el `15`.
+
+---
 
 ### Input 2
 
-```text
+```
 5
 1 2 1 3 2
 ```
 
 ### Output 2
 
-```text
+```
 2 1 3 1 2
 ```
 
 ### Explicación 2
 
-Tenemos los pares `2` y `1`. Sobra un `3` que colocamos en el medio. Priorizamos el `2` en el extremo para que sea lexicográficamente mayor.
+Hay un par de `2` y un par de `1`, y sobra un `3`, que va en el centro. El `2` va en los extremos porque es mayor que el `1`.
+
+---
+
+### Input 3
+
+```
+7
+0 9 0 0 9 0 5
+```
+
+### Output 3
+
+```
+9 0 0 5 0 0 9
+```
+
+### Explicación 3
+
+Hay un par de `9` y dos pares de `0`, y sobra un `5`, que va en el centro.
+
+El par de `9` va en los extremos aunque haya más placas con `0`. Lo que decide el orden es el número de cada placa, no cuántas placas hay con ese número.
+
+---
+
+### Input 4
+
+```
+10
+0 0 0 0 0 0 0 0 0 0
+```
+
+### Output 4
+
+```
+0 0 0 0 0 0 0 0 0 0
+```
+
+### Explicación 4
+
+Las diez placas forman cinco pares y no sobra ninguna, así que el cartel no tiene placa central.
