@@ -58,7 +58,7 @@ Si el acertijo no tiene solución, la línea es `imposible`.
 
 - Utilizar **backtracking** para resolver el problema.
 - Si hay podas posibles, la solución debe realizarlas.
-- Este ejercicio no tiene restricción de orden temporal.
+- Este ejercicio no tiene restricción de orden temporal. Está pensado para que una solución con buenas podas resuelva cada test en el orden de los segundos como máximo.
 - Con $10$ cifras, un número puede superar el rango de un entero de 32 bits.
 
 ## Ejemplo
