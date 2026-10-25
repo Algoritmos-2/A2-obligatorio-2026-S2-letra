@@ -18,7 +18,7 @@ Resolver el acertijo es descubrir qué dígito esconde cada letra. Las reglas so
 3. Una palabra de **más de una letra** no puede empezar con $0$. Una palabra de **una sola letra** sí puede valer $0$.
 4. Al reemplazar cada letra por su dígito, la suma tiene que dar bien.
 
-Cada letra vale lo mismo en todo el acertijo, pero cada acertijo es independiente de los demás: la `A` de un acertijo no tiene nada que ver con la `A` de otro.
+Cada acertijo es independiente de los demás: la `A` de un acertijo no tiene nada que ver con la `A` de otro.
 
 Antes de publicar los acertijos, el diario necesita saber cuáles tienen solución y, para esos, cuál imprimir en la página de respuestas. Un acertijo puede tener más de una solución. En ese caso se imprime:
 
@@ -26,7 +26,7 @@ Antes de publicar los acertijos, el diario necesita saber cuáles tienen soluci�
 2. Si varias comparten ese resultado, la de **menor primer sumando**.
 3. Si también empatan, la de **menor segundo sumando**, y así con los sumandos siguientes.
 
-Dos soluciones distintas le dan un dígito distinto a alguna letra, y esa letra aparece en alguna palabra, así que no pueden coincidir en todas las palabras. Estas reglas siempre eligen una única solución.
+Dos soluciones distintas difieren en el valor de al menos una palabra, así que estas reglas siempre eligen una única solución.
 
 Para cada acertijo, determine **la solución que se imprime**, o si el acertijo no tiene solución.
 
@@ -56,7 +56,8 @@ Si el acertijo no tiene solución, la línea es `imposible`.
 
 ## Restricciones
 
-- Utilizar **backtracking**, asignando un dígito a una letra por vez.
+- Utilizar **backtracking** para resolver el problema, asignando un dígito a una letra por vez y podando las ramas que no pueden llevar a una solución.
+- Este ejercicio no tiene restricción de orden temporal.
 - Con $10$ cifras, un número puede superar el rango de un entero de 32 bits.
 
 ## Ejemplo
@@ -85,7 +86,7 @@ Hay un solo acertijo, y esta es su única solución. Cada letra vale:
 | ----- | - | - | - | - | - | - | - | - |
 | Dígito | 7 | 5 | 1 | 6 | 0 | 8 | 9 | 2 |
 
-Para controlarla alcanza con hacer la suma a mano, de derecha a izquierda:
+La suma, columna por columna desde las unidades:
 
 | Columna | Letras | Cuenta | Cifra del resultado | Acarreo |
 | ------- | ------ | ------ | ------------------- | ------- |
@@ -95,7 +96,7 @@ Para controlarla alcanza con hacer la suma a mano, de derecha a izquierda:
 | Unidades de mil | S + M = O | 0 + 9 + 1 = 10 | 0, que es O | 1 |
 | Decenas de mil | (ninguna) = M | 1 | 1, que es M | 0 |
 
-La última columna muestra por qué $M$ tiene que valer $1$. Dos números de cuatro cifras suman menos de $20000$, así que la quinta cifra del resultado solo puede ser el acarreo, que es $1$.
+$M$ tiene que valer $1$: dos números de cuatro cifras suman menos de $20000$, así que la quinta cifra del resultado solo puede ser el acarreo.
 
 ---
 
