@@ -21,8 +21,8 @@ Determine la **máxima satisfacción total** que puede lograr don Tato con una c
 
 ## Entrada
 
-- La primera línea contiene dos enteros $N$ y $W$ ($1 \leq N \leq 500$, $1 \leq W \leq 10^4$): la cantidad de productos y el peso máximo que soporta la heladera.
-- La segunda línea contiene cuatro enteros $L_0$, $L_1$, $L_2$ y $L_3$ ($0 \leq L_c \leq 10$): el máximo de productos de cada categoría.
+- La primera línea contiene dos enteros $N$ y $W$ ($1 \leq N \leq 100$, $1 \leq W \leq 1000$): la cantidad de productos y el peso máximo que soporta la heladera.
+- La segunda línea contiene cuatro enteros $L_0$, $L_1$, $L_2$ y $L_3$ ($0 \leq L_c \leq 3$): el máximo de productos de cada categoría.
 - Las siguientes $N$ líneas describen un producto cada una, con tres enteros separados por espacios:
   - $p_i$ ($1 \leq p_i \leq 10^4$): el peso del producto.
   - $s_i$ ($1 \leq s_i \leq 10^4$): la satisfacción del producto.
@@ -37,8 +37,8 @@ Imprima un único entero: la máxima satisfacción total de una compra válida. 
 ## Restricciones
 
 - Utilizar **programación dinámica con tabulación** para resolver el problema.
-- Resolver en orden temporal $O(N \cdot W \cdot L)$ en el peor caso, siendo $N$ la cantidad de productos, $W$ el peso máximo y $L$ el mayor de los cuatro máximos por categoría.
-- Orden espacial $O(N + W \cdot L)$.
+- Resolver en orden temporal $O(N \cdot W \cdot L_0 \cdot L_1 \cdot L_2 \cdot L_3)$ en el peor caso, siendo $N$ la cantidad de productos y $W$ el peso máximo.
+- Orden espacial $O(N \cdot W \cdot L_0 \cdot L_1 \cdot L_2 \cdot L_3)$.
 
 ## Ejemplo
 
