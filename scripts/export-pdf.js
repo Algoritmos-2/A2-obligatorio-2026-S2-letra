@@ -169,7 +169,9 @@ function buildFullHtml() {
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <!-- La version del CSS tiene que coincidir con la de KaTeX que usa markdown-it-katex
+       (hoy 0.6.0, ver package-lock.json); si no, los subindices y exponentes quedan corridos. -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.6.0/dist/katex.min.css">
   <style>
     @page {
       size: A4;
