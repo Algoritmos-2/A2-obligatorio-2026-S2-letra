@@ -20,7 +20,7 @@ Determine la **secuencia de números** que conforma el cartel óptimo.
 ## Entrada
 
 - La primera línea contiene un entero $N$ ($1 \leq N \leq 2 \times 10^5$), la cantidad de placas de la colección.
-- La segunda línea contiene $N$ enteros separados por espacios $A_1, A_2, \dots, A_N$ ($0 \leq A_i \leq 1000$), los números grabados en cada placa.
+- La segunda línea contiene $N$ enteros separados por espacios $A_1, A_2, \ldots, A_N$ ($0 \leq A_i \leq 1000$), los números grabados en cada placa.
 
 ## Salida
 

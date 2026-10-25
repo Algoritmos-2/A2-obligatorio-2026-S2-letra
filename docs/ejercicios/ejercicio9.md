@@ -27,8 +27,8 @@ Determine la **máxima cantidad de likes** que puede juntar el Pato respetando l
 ## Entrada
 
 - La primera línea contiene un entero $K$ ($1 \leq K \leq 1000$), la cantidad de rondas.
-- La segunda línea contiene $K$ enteros $a_1 \dots a_K$, separados por espacios.
-- La tercera línea contiene $K$ enteros $\text{likes}_1 \dots \text{likes}_K$, separados por espacios.
+- La segunda línea contiene $K$ enteros $a_1 \ldots a_K$, separados por espacios.
+- La tercera línea contiene $K$ enteros $\text{likes}_1 \ldots \text{likes}_K$, separados por espacios.
 
 Donde:
 
