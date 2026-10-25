@@ -56,7 +56,8 @@ Si el acertijo no tiene solución, la línea es `imposible`.
 
 ## Restricciones
 
-- Utilizar **backtracking** para resolver el problema, asignando un dígito a una letra por vez y podando las ramas que no pueden llevar a una solución.
+- Utilizar **backtracking** para resolver el problema.
+- Si hay podas posibles, la solución debe realizarlas.
 - Este ejercicio no tiene restricción de orden temporal.
 - Con $10$ cifras, un número puede superar el rango de un entero de 32 bits.
 
