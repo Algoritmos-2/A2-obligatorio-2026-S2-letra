@@ -9,6 +9,8 @@ Para la crónica del torneo, la organización quiere contar las **remontadas ép
 1. En el ranking final, $B$ queda **por encima** de $A$.
 2. En el ranking inicial, el puesto de $B$ es **mayor que el doble** del puesto de $A$.
 
+Es decir, $B$ arrancó muy por detrás de $A$ y aun así terminó delante. Por ejemplo, quien arrancó quinto hace una remontada épica si termina por encima de quien arrancó primero o segundo ($5 > 2 \times 1$ y $5 > 2 \times 2$), pero no si termina por encima de quien arrancó tercero ($5 \leq 2 \times 3$).
+
 Un participante puede remontar sobre varios, y cada remontada cuenta por separado.
 
 Determine la **cantidad total de remontadas épicas** del torneo.
@@ -50,31 +52,31 @@ Imprima un único entero: la cantidad total de remontadas épicas. Si no hay nin
 
 ### Explicación 1
 
-El ranking final, con el puesto inicial de cada participante:
+Las condiciones comparan **puestos**, no números de participante. Por eso el primer paso es ver en qué puesto arrancó y en qué puesto terminó cada uno:
 
-| Puesto final | Participante | Puesto inicial |
-| ------------ | ------------ | -------------- |
-| 1 | 3 | 5 |
-| 2 | 5 | 3 |
-| 3 | 4 | 1 |
-| 4 | 1 | 4 |
-| 5 | 2 | 2 |
+| Participante | Puesto inicial | Puesto final |
+| ------------ | -------------- | ------------ |
+| 3 | 5 | 1 |
+| 5 | 3 | 2 |
+| 4 | 1 | 3 |
+| 1 | 4 | 4 |
+| 2 | 2 | 5 |
 
-Hay siete pares en los que un participante terminó por encima de otro que había arrancado delante:
+Por ejemplo, el participante 4 arrancó primero y terminó tercero, y el participante 3 arrancó último y terminó primero.
 
-| Termina arriba | Termina abajo | Puestos iniciales | ¿Remontada épica? |
-| -------------- | ------------- | ----------------- | ----------------- |
-| 3 | 5 | 5 y 3 | no, $5 \leq 2 \times 3$ |
-| 3 | 4 | 5 y 1 | sí, $5 > 2 \times 1$ |
-| 3 | 1 | 5 y 4 | no, $5 \leq 2 \times 4$ |
-| 3 | 2 | 5 y 2 | sí, $5 > 2 \times 2$ |
-| 5 | 4 | 3 y 1 | sí, $3 > 2 \times 1$ |
-| 5 | 2 | 3 y 2 | no, $3 \leq 2 \times 2$ |
-| 1 | 2 | 4 y 2 | no, $4 \leq 2 \times 2$ |
+Para que $B$ remonte sobre $A$, $B$ tiene que terminar por encima de $A$ (condición 1) y haber arrancado detrás de $A$, porque si arrancó delante su puesto inicial no puede ser mayor que el doble del de $A$ (condición 2). Alcanza entonces con revisar los pares en los que $B$ arrancó detrás de $A$ y terminó delante. En este torneo hay siete:
 
-Tres de ellos son remontadas épicas.
+| $B$ (terminó arriba) | $A$ (terminó abajo) | Puesto inicial de $B$ | Puesto inicial de $A$ | ¿Remontada épica? |
+| -------------------- | ------------------- | --------------------- | --------------------- | ----------------- |
+| 3 | 5 | 5 | 3 | no, $5 \leq 2 \times 3$ |
+| 3 | 4 | 5 | 1 | sí, $5 > 2 \times 1$ |
+| 3 | 1 | 5 | 4 | no, $5 \leq 2 \times 4$ |
+| 3 | 2 | 5 | 2 | sí, $5 > 2 \times 2$ |
+| 5 | 4 | 3 | 1 | sí, $3 > 2 \times 1$ |
+| 5 | 2 | 3 | 2 | no, $3 \leq 2 \times 2$ |
+| 1 | 2 | 4 | 2 | no, $4 \leq 2 \times 2$ |
 
-Notar que el participante 4 arrancó primero y el 3 arrancó último: las condiciones comparan puestos, no números de participante.
+Tres de esos pares son remontadas épicas.
 
 ---
 
@@ -94,16 +96,16 @@ Notar que el participante 4 arrancó primero y el 3 arrancó último: las condic
 
 ### Explicación 2
 
-Acá el ranking inicial es `1 2 3 4`, así que cada participante arrancó en el puesto de su número.
+Acá el ranking inicial es `1 2 3 4`, así que cada participante arrancó en el puesto de su número. Los pares en los que $B$ arrancó detrás de $A$ y terminó delante son:
 
-| Termina arriba | Termina abajo | Puestos iniciales | ¿Remontada épica? |
-| -------------- | ------------- | ----------------- | ----------------- |
-| 4 | 2 | 4 y 2 | no, $4 = 2 \times 2$ |
-| 4 | 1 | 4 y 1 | sí, $4 > 2 \times 1$ |
-| 4 | 3 | 4 y 3 | no, $4 < 2 \times 3$ |
-| 2 | 1 | 2 y 1 | no, $2 = 2 \times 1$ |
+| $B$ (terminó arriba) | $A$ (terminó abajo) | Puesto inicial de $B$ | Puesto inicial de $A$ | ¿Remontada épica? |
+| -------------------- | ------------------- | --------------------- | --------------------- | ----------------- |
+| 4 | 2 | 4 | 2 | no, $4 = 2 \times 2$ |
+| 4 | 1 | 4 | 1 | sí, $4 > 2 \times 1$ |
+| 4 | 3 | 4 | 3 | no, $4 < 2 \times 3$ |
+| 2 | 1 | 2 | 1 | no, $2 = 2 \times 1$ |
 
-El 4 sobre el 2 y el 2 sobre el 1 quedan en el doble justo, y no cuentan.
+El 4 sobre el 2 y el 2 sobre el 1 quedan en el doble justo, y no cuentan: el puesto inicial de $B$ tiene que ser **mayor** que el doble.
 
 ---
 
@@ -123,12 +125,14 @@ El 4 sobre el 2 y el 2 sobre el 1 quedan en el doble justo, y no cuentan.
 
 ### Explicación 3
 
-| Termina arriba | Termina abajo | Puestos iniciales | ¿Remontada épica? |
-| -------------- | ------------- | ----------------- | ----------------- |
-| 3 | 1 | 3 y 1 | sí, $3 > 2 \times 1$ |
-| 3 | 2 | 3 y 2 | no, $3 < 2 \times 2$ |
-| 6 | 4 | 6 y 4 | no, $6 < 2 \times 4$ |
-| 6 | 5 | 6 y 5 | no, $6 < 2 \times 5$ |
+Los pares en los que $B$ arrancó detrás de $A$ y terminó delante son:
+
+| $B$ (terminó arriba) | $A$ (terminó abajo) | Puesto inicial de $B$ | Puesto inicial de $A$ | ¿Remontada épica? |
+| -------------------- | ------------------- | --------------------- | --------------------- | ----------------- |
+| 3 | 1 | 3 | 1 | sí, $3 > 2 \times 1$ |
+| 3 | 2 | 3 | 2 | no, $3 < 2 \times 2$ |
+| 6 | 4 | 6 | 4 | no, $6 < 2 \times 4$ |
+| 6 | 5 | 6 | 5 | no, $6 < 2 \times 5$ |
 
 El 3 y el 6 suben dos puestos cada uno, pero solo el 3 hace una remontada épica. Para remontar sobre quien arrancó primero alcanza con haber arrancado tercero. Para remontar sobre quien arrancó cuarto, en cambio, hay que haber arrancado noveno o más atrás.
 
@@ -150,10 +154,10 @@ El 3 y el 6 suben dos puestos cada uno, pero solo el 3 hace una remontada épica
 
 ### Explicación 4
 
-El ranking final es el inicial dado vuelta, así que los 15 pares se cruzan.
+El ranking final es el inicial dado vuelta: cada participante termina por encima de todos los que arrancaron delante. Cada uno remonta sobre los que arrancaron en un puesto menor que la mitad del suyo:
 
-| Participante | Puesto inicial | Remonta sobre |
-| ------------ | -------------- | ------------- |
+| $B$ | Puesto inicial de $B$ | Remonta sobre |
+| --- | --------------------- | ------------- |
 | 6 | 6 | 1 y 2 |
 | 5 | 5 | 1 y 2 |
 | 4 | 4 | 1 |
