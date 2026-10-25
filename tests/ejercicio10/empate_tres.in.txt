@@ -1,0 +1,6 @@
+1
+3
+ABC
+CBA
+BAC
+DEFG
