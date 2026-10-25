@@ -99,8 +99,6 @@ La suma, columna por columna desde las unidades:
 | Unidades de mil | S + M = O | 0 + 9 + 1 = 10 | 0, que es O | 1 |
 | Decenas de mil | (ninguna) = M | 1 | 1, que es M | 0 |
 
-$M$ tiene que valer $1$: dos números de cuatro cifras suman menos de $20000$, así que la quinta cifra del resultado solo puede ser el acarreo.
-
 ---
 
 ### Input 2
